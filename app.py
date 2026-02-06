@@ -155,23 +155,46 @@ with st.sidebar:
 
 # Main Content
 if st.session_state["text"] == "":
-    col1, col2 = st.columns([1, 1])
+    st.markdown(f"# Welcome to LegisLens")
+    st.markdown("### Your AI Legal Companion")
     
-    with col1:
-        st.markdown(f"# Welcome to LegisLens")
-        st.markdown("### Your Guardian in legal agreements.")
+    st.markdown("---")
+    
+    st.markdown("### 🤖 What is LegisLens?")
+    st.markdown("""
+    **LegisLens** is an intelligent contract analysis tool designed to democratize legal understanding. 
+    We use advanced AI to scan your legal documents, identifying potential risks, hidden clauses, and unfavorable terms—translating complex legalese into plain English.
+    """)
+    
+    st.divider()
+    
+    col_a, col_b = st.columns([1, 1], gap="large")
+    
+    with col_a:
+        st.markdown("### 🚀 How It Works")
         st.markdown("""
-        Contracts can be complex. **LegisLens** makes them simple. Use our advanced AI to:
+        Getting a legal review is now as easy as 1-2-3:
         
-        *   **Identify Risks**: Spot dangerous clauses instantly.
-        *   **Simplify Jargon**: Translate legalese into plain English.
-        *   **Negotiate Better**: Get actionable advice on what to change.
+        1.  **Upload**: text Drag & drop your contract file (PDF, DOCX, or TXT) in the sidebar.
+        2.  **Analyze**: Click the **"Analyze Contract"** button to start the AI engine.
+        3.  **Review**: Instantly view the **Risk Score**, **Summary**, and **Clause Breakdown**.
         """)
-        st.info("👈 Upload a contract document in the sidebar to begin.")
+        
+    with col_b:
+        st.markdown("### 📄 What We Analyze")
+        st.markdown("""
+        LegisLens is optimized for a wide range of everyday legal agreements:
+        
+        *   **Employment Contracts** (Offer letters, Non-competes)
+        *   **Rental & Lease Agreements** (Residential, Commercial)
+        *   **Non-Disclosure Agreements (NDAs)**
+        *   **Service & Freelance Contracts**
+        *   **Sales & Purchase Agreements**
+        """)
+        
+    st.divider()
     
-    with col2:
-         # Placeholder for hero image or animation if desired, for now just spacing
-         st.empty()
+    st.info("👈 **Ready to start?** Open the sidebar to upload your document!")
 
 else:
     if st.session_state["page"] == "Dashboard":
